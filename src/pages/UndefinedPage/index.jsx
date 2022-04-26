@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import "./styles.scss";
 
 export default function UndefinedPage() {
   return (
-    <div>UndefinedPage</div>
-  )
+    <div className="undefined-page">
+      <span className="undefined-page__text">Страница не найдена :(</span>
+    </div>
+  );
 }

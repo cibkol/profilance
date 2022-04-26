@@ -1,0 +1,9 @@
+.undefined-page {
+  display: flex;
+  justify-content: center;
+
+  &__text {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
