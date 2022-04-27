@@ -28,9 +28,15 @@ export default function NewsPage() {
   const [filterNews, setFilterNews] = useState("");
 
   const createNews = () => {
-    dispatch(addNotApprovedNews({ ...createNewsForm, id: +new Date() }));
-    setCreateNewsForm(emptyForm);
-    alert("Новость отправленна, она будет отображаться после проверки админом");
+    if (!createNewsForm.date || !createNewsForm.text || !createNewsForm.title) {
+      alert("Заполните все поля");
+    } else {
+      dispatch(addNotApprovedNews({ ...createNewsForm, id: +new Date() }));
+      setCreateNewsForm(emptyForm);
+      alert(
+        "Новость отправленна, она будет отображаться после проверки админом"
+      );
+    }
   };
 
   const viewNewsHandler = () => {
