@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "./store/index.reducer";
+import { login, logout } from "./slice/index.reducer";
 
 const emptyForm = { login: "", password: "" };
 
@@ -20,11 +20,13 @@ export default function LoginPopup(props) {
   const onClickLogin = () => {
     dispatch(login(form));
     setForm(emptyForm);
+    props.popupHandler();
   };
 
   const onClickLogout = () => {
     dispatch(logout(form));
     setForm(emptyForm);
+    props.popupHandler();
   };
 
   const onClickCancel = () => {

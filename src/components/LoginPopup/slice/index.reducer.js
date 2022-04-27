@@ -10,13 +10,15 @@ const loginReducer = createSlice({
       if (user) {
         if (user.password === payload.password) {
           alert("Добро пожаловать " + user.login);
+          return { ...state, user };
         } else {
           alert("Пароль не правильный");
+          return { ...state };
         }
       } else {
         alert("Пользователь не найден");
+        return { ...state };
       }
-      return { ...state, user };
     },
     logout: (state, { payload }) => {
       return {
