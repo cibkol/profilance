@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import Logo from "../../assets/image/logo.svg";
 import { Link, NavLink } from "react-router-dom";
+import LoginPopup from "../LoginPopup";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const [isOpenLoginPopup, setIsOpenLoginPopup] = useState(false);
+  const { user } = useSelector((state) => state.login);
+
+  const loginPopupHandler = () => {
+    setIsOpenLoginPopup(!isOpenLoginPopup);
+  };
+
   return (
     <div className="header">
       <Link className="logo" to="">
@@ -19,8 +28,12 @@ export default function Header() {
         >
           Новости
         </NavLink>
-        <button className="links__link">Вход/выход</button>
+        <button onClick={loginPopupHandler} className="links__link">
+          {user.role ? "Выход" : "Вход"}
+        </button>
       </div>
+
+      {isOpenLoginPopup && <LoginPopup popupHandler={loginPopupHandler} />}
     </div>
   );
 }

@@ -1,0 +1,41 @@
+.login-popup {
+  position: absolute;
+  right: 0;
+  bottom: -200px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  &-btn {
+    border-bottom: 1px solid white;
+    transition: all 150ms;
+
+    &:hover {
+      border-bottom: 1px solid rgb(211, 219, 247);
+      color: rgb(211, 219, 247);
+    }
+  }
+
+  &_logout {
+    bottom: -100px;
+  }
+}
+
+.input-block {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  &__label {
+    width: 50px;
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid black;
+  }
+}

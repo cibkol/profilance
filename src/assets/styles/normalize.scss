@@ -19,9 +19,13 @@ html {
 /**
    * Remove the margin in all browsers.
    */
+html {
+  height: 100%;
+}
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 /**
